@@ -8,10 +8,11 @@ int main() {
 
 	if (nota < 20 && nota > 0) {
 		if (nota > 9.5) {
-			std::cout << "Estás aprovado!";
+			std::cout << "EstÃ¡s aprovado!";
 		}
 		else {
-			std::cout << "Não foste aprovado!";
+			std::cout << "NÃ£o foste aprovado!";
 		}
 	}
+	return 0;
 }
