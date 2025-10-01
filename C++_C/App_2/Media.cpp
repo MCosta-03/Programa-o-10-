@@ -27,4 +27,5 @@ int main(){
 
     total = (p + p1 + p2 + p3)/4;
     std::cout   << "A média foi: " << total << "!";
+    return 0;
 }
