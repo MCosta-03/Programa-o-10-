@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include <random>
 
 int main() {
@@ -19,20 +19,20 @@ int main() {
 	std::cout << code << std::endl;
 
 	while(code != usrCode){
-		std::cout << "Adivinha o c骴igo: ";
+		std::cout << "Adivinha o c贸digo: ";
 		std::cin >> usrCode;
 
 		if (usrCode != code) {
-			std::cout << "C骴igo errado!\n";
+			std::cout << "C贸digo errado!\n";
 			times++;
 		}
 
 		if (times == 10) {
-			std::cout << "Erraste o c骴igo, Vai bloquear!\n";
+			std::cout << "Erraste o c贸digo, Vai bloquear!\n";
 			return 0;
 		}
 	}
-	std::cout << "Acertas-te o c骴igo parab閚s!!!\n";
+	std::cout << "Acertas-te o c贸digo parab茅ns!!!\n";
 
 	return 0;
-}*/
+}
