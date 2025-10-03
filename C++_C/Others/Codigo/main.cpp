@@ -8,7 +8,7 @@ int main() {
 	int usrCode = 0000;
 
 	while (continueApp == 0) {
-		code = rand() % 9999;
+		code = rand() % 10000;
 		if (code < 1000) {
 
 		}
@@ -16,7 +16,6 @@ int main() {
 			continueApp = 1;
 		}
 	}
-	std::cout << code << std::endl;
 
 	while(code != usrCode){
 		std::cout << "Adivinha o código: ";
@@ -36,3 +35,4 @@ int main() {
 
 	return 0;
 }
+
