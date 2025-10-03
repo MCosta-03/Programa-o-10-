@@ -31,8 +31,9 @@ int main() {
 			return 0;
 		}
 	}
-	std::cout << "Acertas-te o código parabéns!!!\n";
+	std::cout << "Acertaste o código parabéns!!!\n";
 
 	return 0;
 }
+
 
