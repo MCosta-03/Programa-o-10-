@@ -20,6 +20,7 @@ int main() {
 	float Refrigerantes_c	= 0;
 	float cafe_c			= 0;
 
+	/*Quantidades de cada um*/
 	int Sandes_Quantidade			= 0;
 	int Bolos_Quantidade			= 0;
 	int Refrigerantes_Quantidade	= 0;
@@ -47,7 +48,7 @@ int main() {
 	cout << "Quantos?: ";
 	cin >> cafe_Quantidade;
 
-	lucro = (Sandes_c - Sandes)* Sandes_Quantidade + (Bolos_c - Bolos)* Bolos_Quantidade + (Refrigerantes_c - Refrigerantes)* Refrigerantes_Quantidade + (cafe_c - cafe)* cafe_Quantidade;
+	lucro = ((Sandes_c - Sandes)* Sandes_Quantidade) + ((Bolos_c - Bolos)* Bolos_Quantidade) + ((Refrigerantes_c - Refrigerantes)* Refrigerantes_Quantidade) + ((cafe_c - cafe)* cafe_Quantidade);
 
 	cout << "O lucro do bar foi: " << lucro << " euros";
 
