@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <locale>
 
 using namespace std;
@@ -19,11 +19,13 @@ int main() {
 
 	if (familiares > fatias) {
 		fatias_cada_um = familiares / fatias;
-		pessoas_que_sobram = familiares - fatias;
+		pessoas_que_sobram = familiares % fatias;
 	}
 	else {
 		fatias_cada_um = fatias / familiares;
 	}
+
+	fatias_que_sobraram = fatias % familiares;
 	
 	if (fatias_cada_um == 1) {
 		cout << "Dá " << fatias_cada_um << " fatia a cada um. ";
@@ -39,9 +41,7 @@ int main() {
 		else {
 			cout << "E sobraram " << pessoas_que_sobram << " pessoas sem fatia.";
 		}
-	}else if (fatias > familiares) {
-		fatias_que_sobraram = fatias - familiares;
-
+	}else if (fatias_que_sobraram != 0) {
 		if (fatias_que_sobraram == 1) {
 			cout << "E sobrou " << fatias_que_sobraram << " fatia.";
 		}
