@@ -24,8 +24,10 @@ int main() {
 	else {
 		fatias_cada_um = fatias / familiares;
 	}
-
-	fatias_que_sobraram = fatias % familiares;
+	
+    if(fatias > familiares){
+	    fatias_que_sobraram = fatias % familiares;
+	}
 	
 	if (fatias_cada_um == 1) {
 		cout << "Dá " << fatias_cada_um << " fatia a cada um. ";
@@ -49,6 +51,5 @@ int main() {
 			cout << "E sobrou " << fatias_que_sobraram << " fatias.";
 		}
 	}
-
 	return 0;
 }
