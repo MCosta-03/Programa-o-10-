@@ -21,7 +21,7 @@ int main() {
 			cout << "\n" << i << " -> " << Escolhas[i];
 		}
 
-		cout << "\nSe escolhesses um carro, qual escolhias?: ";
+		cout << "\nSe fosses escolher um carro, qual escolhias?: ";
 		cin >> escolha;
 
 		if (escolha < 3 && escolha > -1) {
@@ -36,4 +36,5 @@ int main() {
 	}
 	
 	return 0;
+
 }
