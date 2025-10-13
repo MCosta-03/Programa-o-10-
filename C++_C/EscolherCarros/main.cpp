@@ -14,12 +14,17 @@ int main() {
 	cout << "Vou fazer uma pergunta e tu vais escolher...\n\n";
 
 	while (c == 'n') {
+		/*	**********Extra**********
 		cout << "\nEstes são os carros:";
 		for (int i = 0; i < 3; i++) {
 			cout << "\n" << i << " -> " << Escolhas[i];
 		}
 
 		cout << "\nSe fosses escolher um carro, qual escolhias?: ";
+		cin >> escolha;
+		*/
+
+		cout << "\nEscolhe um número de 0 a 2 :";
 		cin >> escolha;
 
 		if (escolha < 3 && escolha > -1) {
@@ -36,4 +41,5 @@ int main() {
 	return 0;
 
 }
+
 
