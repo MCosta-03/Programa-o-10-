@@ -13,7 +13,7 @@ int main() {
 	int num = rand() % 100 + 1;
 	int usr_num = 0;
 
-	cout << "Vou escolher um número de 0 a 100...\n";
+	cout << "Vou escolher um número de 1 a 100...\n";
 
 	while (usr_num != num) {
 		cout << "Tenta adivinhar o número: ";
@@ -33,4 +33,5 @@ int main() {
 	cout << "Acertaste!!!!";
 	
 	return 0;
+
 }
