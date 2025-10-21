@@ -10,18 +10,19 @@ int main() {
 	int n = 0;
 	int times = 0;
 
-	int maior = 0;
-	int menor = 0;
+	int maior = -2147483647;
+	int menor = 2147483647;
 
 	cout << "Vou perguntar várias vezes números...\n\n";
 	do {
-		cout << "Diz um número pela " << times+1 << "º vez: ";
+		cout << "Diz um número pela " << times + 1 << "º vez: ";
 		cin >> n;
 
 		if (n > maior) {
 			maior = n;
 		}
-		else if (n < menor) {
+		
+		if (n < menor && n != 0) {
 			menor = n;
 		}
 
@@ -31,4 +32,5 @@ int main() {
 	cout << "O maior número foi: " << maior << " e o menor foi " << menor << "!";
 
 	return 0;
+
 }
