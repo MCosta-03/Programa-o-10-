@@ -74,16 +74,16 @@ int main() {
             carac_y++;
         }
 
-        if (carac_x == 37 && carac_y == 18) {
+        if (carac_x == 38 && carac_y == 18) {
             corner++;
         }
-        if (carac_x == 2 && carac_y == 2) {
+        if (carac_x == 1 && carac_y == 1) {
             corner++;
         }
-        if (carac_x == 37 && carac_y == 2) {
+        if (carac_x == 38 && carac_y == 1) {
             corner++;
         }
-        if (carac_x == 2 && carac_y == 37) {
+        if (carac_x == 1 && carac_y == 38) {
             corner++;
         }
 
@@ -102,4 +102,5 @@ int main() {
     }
 	
 	return 0;
+
 }
