@@ -15,15 +15,16 @@ int main() {
 
     for (int i = 0; i < 5; i++) {
         nums[i] = (rand() % 49) + 1;
+        cout << "\n" << nums[i];
     }
 
-    cout << "Vou perguntar 5 números de 1 a 50....\n";
+    cout << "Vou perguntar 5 nÃºmeros de 1 a 50....\n";
     for (int i = 0; i < 5; i++) {
-        cout << "Diz o " << i + 1 << "º número: ";
+        cout << "Diz o " << i + 1 << "Âº nÃºmero: ";
         cin >> usr_nums[i];
 
         if (usr_nums[i] > 50 || usr_nums[i] < 1) {
-            cout << "Número inválido! Tenta outra vez!\n";
+            cout << "NÃºmero invÃ¡lido! Tenta outra vez!\n";
             i--;
         }
         else {
@@ -34,14 +35,15 @@ int main() {
     }
 
     cout << "A chave foi: ";
-    for (int i = 0; i < 5; i++) {
+    for (int i = 4; i >= 0; i--) {
         cout << "\n" << nums[i];
     }
 
     if (correct_nums == 5) {
-        cout << "\nPARABÉNS GANHASTE 1 MILHÃO DE BITCOIN";
-    }else {
-        cout << "\nE acertaste " << correct_nums << " números!";
+        cout << "\nPARABÃ‰NS GANHASTE 1 MILHÃƒO DE BITCOIN";
+    }
+    else {
+        cout << "\nE acertaste " << correct_nums << " nÃºmeros!";
     }
 
     return 0;
