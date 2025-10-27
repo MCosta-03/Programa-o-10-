@@ -18,7 +18,7 @@ int main() {
         cout << "\n" << nums[i];
     }
 
-    cout << "Vou perguntar 5 números de 1 a 50....\n";
+    cout << "\nVou perguntar 5 números de 1 a 50....\n";
     for (int i = 0; i < 5; i++) {
         cout << "Diz o " << i + 1 << "º número: ";
         cin >> usr_nums[i];
@@ -35,7 +35,7 @@ int main() {
     }
 
     cout << "A chave foi: ";
-    for (int i = 4; i >= 0; i--) {
+    for (int i = 0; i < 5; i++) {
         cout << "\n" << nums[i];
     }
 
