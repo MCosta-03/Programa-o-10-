@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <conio.h>
+
 
 const char Corner_frames[4][5][5] = {
     '*', '*', '*', '*', ' ',
@@ -44,10 +46,11 @@ int main() {
     int corner = 0;
     int show_corner = 0;
     int show_corner_type_pos = 0;
-    int bar_pos;
+    int bar_pos = 0;
+    int floor_times = 0;
 
     while (0 == 0) {
-        _sleep(20);
+        _sleep(3);
         printf("\033[H");
 
         for (int y = 0; y < 20; y++) {
@@ -71,10 +74,28 @@ int main() {
         }
 
         for (int x = 0; x < 5; x++) {
-            frameBuffer[x+1][2] = Bar[x];
+            frameBuffer[x + 1 + bar_pos][18] = Bar[x];
         }
 
-        if()
+        if (_kbhit()) {
+            int key = _getch();
+
+            if (key == 97 && bar_pos > 0) {
+                bar_pos-=2;
+            } 
+            else if (key == 100 && bar_pos < 32) {
+                bar_pos+=2;
+            }
+        }
+
+        /* Estou a tentar de maneira que o O toque na barra para continua o jogo. */
+        if (carac_y > 17 && bar_pos == 0) {
+           
+        }
+
+        if (carac_y > 17) {
+            floor_times++;
+        }
 
         if (carac_x > 37) {
             Xdirection = 0;
@@ -169,10 +190,13 @@ int main() {
                 printf("    Bateu no canto %d vezes", corner);
             }
             if (y == 2) {
-                printf("    [A] para andar para a esquerda", corner);
+                printf("    [A] para andar para a esquerda");
             }
             if (y == 3) {
-                printf("    [D] para andar para a direita.", corner);
+                printf("    [D] para andar para a direita.");
+            }
+            if (y == 5) {
+                printf("    bateu no chão %d vezes", floor_times);
             }
             printf("%c", '\n');
         }
