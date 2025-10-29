@@ -12,11 +12,24 @@ int main() {
     int nums[5];
     int usr_nums[5];
     int correct_nums = 0;
+    int repeat = 0;
 
-    for (int i = 0; i < 5; i++) {
-        nums[i] = (rand() % 49) + 1;
-        cout << "\n" << nums[i];
-    }
+    do {
+        repeat = 0;
+        for (int i = 0; i < 5; i++) {
+            nums[i] = (rand() % 50) + 1;
+        }
+        for (int i = 0; i < 5; i++) {
+            for (int j = 0; j < 5; j++) {
+                if (nums[i] == nums[j] && j != i) {
+                    repeat = 1;
+                }
+            }
+        }
+    } while (repeat == 1);
+
+    for (int i = 0; i < 5; i++)
+        cout << nums[i] << "\n";
 
     cout << "\nVou perguntar 5 números de 1 a 50....\n";
     for (int i = 0; i < 5; i++) {
@@ -33,6 +46,21 @@ int main() {
             }
         }
     }
+
+    int AUX = 0;
+    int trocas = 0;
+
+    do {
+        trocas = 0;
+        for (int i = 0; i < 10; i++) {
+            if (nums[i] > nums[i + 1]) {
+                AUX = nums[i];
+                nums[i] = nums[i + 1];
+                nums[i + 1] = AUX;
+                trocas++;
+            }
+        }
+    } while (trocas != 0);
 
     cout << "A chave foi: ";
     for (int i = 0; i < 5; i++) {
