@@ -52,7 +52,7 @@ int main() {
 
     do {
         trocas = 0;
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 5; i++) {
             if (nums[i] > nums[i + 1]) {
                 AUX = nums[i];
                 nums[i] = nums[i + 1];
