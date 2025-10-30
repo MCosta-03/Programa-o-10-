@@ -50,7 +50,7 @@ int main() {
     int floor_times = 0;
 
     while (0 == 0) {
-        _sleep(3);
+        _sleep(30);
         printf("\033[H");
 
         for (int y = 0; y < 20; y++) {
@@ -81,16 +81,15 @@ int main() {
             int key = _getch();
 
             if (key == 97 && bar_pos > 0) {
-                bar_pos-=2;
-            } 
+                bar_pos -= 2;
+            }
             else if (key == 100 && bar_pos < 32) {
-                bar_pos+=2;
+                bar_pos += 2;
             }
         }
 
-        /* Estou a tentar de maneira que o O toque na barra para continua o jogo. */
-        if (carac_y > 17 && bar_pos == 0) {
-           
+        if (carac_y > 17 && carac_x >= bar_pos && carac_x <= bar_pos + 5) {
+            floor_times--;
         }
 
         if (carac_y > 17) {
