@@ -56,14 +56,12 @@ int main() {
     int snake_pos_x = 10;
     int snake_pos_y = 10;
     int snake_direction = 0;
-    int snake_size = 1;
+    int snake_size = 5;
     int snake_body_count_x = 0;
     int snake_body_count_y = 0;
+    int snake_del_pos[2] = { 0 };
 
     int snake_area[38][18] = { 0 };
-
-    int snake_body_pos_x[10] = { 0 };
-    int snake_body_pos_y[10] = { 0 };
 
     char frameBuffer[40][20];
     for (int y = 0; y < 20; y++)
@@ -73,7 +71,7 @@ int main() {
         for (int x = 0; x < 38; x++)
             snake_area[x][y] = ' ';
     while (0 == 0) {
-        sleep(200);
+        sleep(100);
         printf("\033[H");
         for (int y = 0; y < 20; y++) {
             for (int x = 0; x < 40; x++) {
@@ -92,7 +90,6 @@ int main() {
                 else if (x == 0) {
                     frameBuffer[x][y] = 'M';
                 }
-
             }
         }
         if (kbhit()) {
@@ -121,35 +118,76 @@ int main() {
         case 1:
             snake_pos_x--;
             snake_area[snake_pos_x][snake_pos_y] = '#';
+            snake_body_count_x++;
             //frameBuffer[snake_pos_x][snake_pos_y] = '#';
             break;
         case 2:
             snake_pos_x++;
             snake_area[snake_pos_x][snake_pos_y] = '#';
+            snake_body_count_x++;
             //frameBuffer[snake_pos_x][snake_pos_y] = '#';
             break;
         case 3:
             snake_pos_y++;
             snake_area[snake_pos_x][snake_pos_y] = '#';
+            snake_body_count_y++;
             //frameBuffer[snake_pos_x][snake_pos_y] = '#';
             break;
         case 4:
             snake_pos_y--;
             snake_area[snake_pos_x][snake_pos_y] = '#';
+            snake_body_count_y++;
             //frameBuffer[snake_pos_x][snake_pos_y] = '#';
             break;
         }
 
+        if ((snake_body_count_x > snake_size - 1) && snake_direction == 1) {
+            snake_del_pos[0] = snake_pos_x + snake_body_count_x;
+            snake_del_pos[1] = snake_pos_y;
+            snake_body_count_x = snake_size - 1;
+            if (snake_body_count_y > 0) {
+                snake_body_count_y--;
+            }
+        }
+
+        if ((snake_body_count_x > snake_size-1) && snake_direction == 2) {
+            snake_del_pos[0] = snake_pos_x - snake_body_count_x;
+            snake_del_pos[1] = snake_pos_y;
+            
+            snake_body_count_x = snake_size-1;
+            if (snake_body_count_y > 0) {
+                snake_body_count_y--;
+            }
+        }
+        
+        if ((snake_body_count_y > snake_size-1) && snake_direction == 3) {
+            snake_del_pos[0] = snake_pos_x;
+            snake_del_pos[1] = snake_pos_y - snake_body_count_y;
+            snake_body_count_y = snake_size-1;
+            if (snake_body_count_x > 0) {
+                snake_body_count_x--;
+            }
+        }
+
+        if ((snake_body_count_y > snake_size - 1) && snake_direction == 4) {
+            snake_del_pos[0] = snake_pos_x;
+            snake_del_pos[1] = snake_pos_y + snake_body_count_y;
+            snake_body_count_y = snake_size - 1;
+            if (snake_body_count_x > 0) {
+                snake_body_count_x--;
+            }
+        }
+        snake_area[snake_del_pos[0]][snake_del_pos[1]] = ' ';
+
         for (int y = 0; y < 20; y++) {
             for (int x = 0; x < 40; x++) {
                 if (x > 1 && y > 1 && x < 38 && y < 18) {
-                    frameBuffer[x][y] = snake_area[x-1][y-1];
+                    frameBuffer[x][y] = snake_area[x - 1][y - 1];
                 }
                 printf("%c", frameBuffer[x][y]);
             }
             printf("%c", '\n');
         }
-        snake_size++;
     }
     return 0;
 }
