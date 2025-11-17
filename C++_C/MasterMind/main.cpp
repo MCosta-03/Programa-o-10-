@@ -19,9 +19,6 @@ int main() {
         code[i] = rand() % 2;
     }
 
-    for (int i = 0; i < 4; i++)
-        cout << code[i];
-
     do{
         for (int j = 0; j < 4; j++) {
             cout << "Diz o " << j + 1 << "º número:";
