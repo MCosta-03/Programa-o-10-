@@ -3,7 +3,6 @@
 #include <string>
 #include <stdlib.h>
 #include <time.h>
-#include "raylib.h"
 
 using namespace std;
 
@@ -111,4 +110,5 @@ int main() {
         }
     } while (resp != 0);
     return 0;
+
 }
