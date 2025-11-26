@@ -98,11 +98,8 @@ int main() {
                     cout << "\n";
                 }
                 /*------------------------------------------*/
-                cout << "s para sair.\n";
-                cin >> resp;
-                if (resp == 's') {
-                    resp = 0;
-                }
+                cout << "enter para sair.\n";
+                cin.ignore();
             }
             else {
                 cout << "Tens que inserir primeiro para depois subtrair!\n\n";
@@ -112,3 +109,4 @@ int main() {
     return 0;
 
 }
+
