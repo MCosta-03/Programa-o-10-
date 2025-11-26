@@ -100,6 +100,7 @@ int main() {
                 /*------------------------------------------*/
                 cout << "enter para sair.\n";
                 cin.ignore();
+                cin.get();
             }
             else {
                 cout << "Tens que inserir primeiro para depois subtrair!\n\n";
@@ -109,4 +110,5 @@ int main() {
     return 0;
 
 }
+
 
