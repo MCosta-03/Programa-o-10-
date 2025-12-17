@@ -21,9 +21,7 @@ int main() {
         for (int j = 0; j < binarios.length(); j++) {
             if (binarios[j] == '1') quantidade_de_gotas++;
         }
-        cout << quantidade_de_gotas << "\n\n";
-
-        if (quantidade_de_gotas > M) maior_que_valor_maximo++;
+        if (quantidade_de_gotas >= M) maior_que_valor_maximo++;
         if (quantidade_de_gotas < m) menor_que_valor_minimo++;
 
         if (quantidade_de_gotas >= A && quantidade_de_gotas <= B) adequados++;
