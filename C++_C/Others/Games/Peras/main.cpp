@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+
 #ifdef _WIN32
 #include <conio.h>
 int kbhit() {
@@ -50,7 +51,7 @@ int getch(void) {
 
 char frameBuffer[40][20] = { ' ' };
 int points = 0;
-int things_n = 0;
+int things_n = 0, last_things_n = 0;
 
 void Say_PointsAndCommands(int line) {
 	const char* commands[4] = {
@@ -64,7 +65,11 @@ void Say_PointsAndCommands(int line) {
 	else if (line == 5)	printf("  Existe %d peras.", things_n);
 	else if (line < 5)	printf(commands[line]);
 }
+void GivePoints() {
+	if (things_n < last_things_n) points++;
+}
 void UpdateFrameBuffer() {
+	last_things_n = things_n;
 	things_n = 0;
 	for (int y = 0; y < 20; y++) {
 		for (int x = 0; x < 40; x++) {
@@ -129,6 +134,7 @@ int main() {
 			}
 			printf("\n");
 		}
+		GivePoints();
 		UpdateFrameBuffer();
 		_sleep(20);
 	}
