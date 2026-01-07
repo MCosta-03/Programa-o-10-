@@ -8,7 +8,7 @@ using namespace std;
 int Numeros_escolhidos[10] = { 0 };
 
 int Calc_MaiorNumero() {
-    int value = 0;
+    int value = -2147483647;
     for (int i = 0; i < 10; i++) 
         if(value < Numeros_escolhidos[i])
             value = Numeros_escolhidos[i];
