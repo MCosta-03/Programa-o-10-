@@ -52,6 +52,8 @@ int getch(void) {
 char frameBuffer[40][20] = { ' ' };
 int points = 0;
 int things_n = 0, last_things_n = 0;
+int sprite_x = 40 / 2;
+int sprite_y = 20 / 2;
 
 void Say_PointsAndCommands(int line) {
 	const char* commands[4] = {
@@ -68,6 +70,7 @@ void Say_PointsAndCommands(int line) {
 void GivePoints() {
 	if (things_n < last_things_n) points++;
 }
+int go_to_x = 0, go_to_y = 0;
 void UpdateFrameBuffer() {
 	last_things_n = things_n;
 	things_n = 0;
@@ -77,23 +80,34 @@ void UpdateFrameBuffer() {
 			else if (y == 19)	frameBuffer[x][y] = '=';
 			else if (x == 0)	frameBuffer[x][y] = '|';
 			else if (x == 39)	frameBuffer[x][y] = '|';
-			else if (frameBuffer[x][y] == 'o') things_n++;
+			else if (frameBuffer[x][y] == 'o') {
+				things_n++;
+				go_to_x = x;
+				go_to_y = y;
+			}
 			else				frameBuffer[x][y] = ' ';
 		}
 	}
 }
 void SpawnThings() {
 	srand(time(0));
-	int Spawn = rand() % 5;
+	int Spawn = rand() % 3;
 	if (Spawn == 2) {
 		int temp_x = (rand() % 39 - 1) + 1;
 		int temp_y = (rand() % 19 - 1) + 1;
 		frameBuffer[temp_x][temp_y] = 'o';
 	}
 }
+
+void PlayAlone() {
+	if (things_n != 0) {
+		if (go_to_x > sprite_x) sprite_x++;
+		if (go_to_y > sprite_y) sprite_y++;
+		if (go_to_x < sprite_x) sprite_x--;
+		if (go_to_y < sprite_y) sprite_y--;
+	}
+}
 int main() {
-	int sprite_x = 40 / 2;
-	int sprite_y = 20 / 2;
 	printf("\033[?25l");
 	fflush(stdout);
 	while (0 == 0) {
@@ -136,7 +150,8 @@ int main() {
 		}
 		GivePoints();
 		UpdateFrameBuffer();
-		_sleep(20);
+		PlayAlone();
+		_sleep(50);
 	}
 	return 0;
 }
