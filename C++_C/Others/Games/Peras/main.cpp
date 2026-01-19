@@ -49,6 +49,20 @@ int getch(void) {
 }
 #endif
 
+int sleep_time_temp = 0;
+int seconds = 0, minute = 0;
+void count_time(int sleep_time) {
+	sleep_time_temp += sleep_time;
+	if (sleep_time_temp >= 600) {
+		sleep_time_temp = 0;
+		seconds++;
+	}
+	if (seconds == 60) {
+		seconds = 0;
+		minute++;
+	}
+}
+
 char frameBuffer[40][20] = { ' ' };
 int points = 0;
 int things_n = 0, last_things_n = 0;
@@ -65,7 +79,8 @@ void Say_PointsAndCommands(int line) {
 
 	if (line == 4)		printf("  Tens %d pontos.", points);
 	else if (line == 5)	printf("  Existe %d peras.", things_n);
-	else if (line < 5)	printf(commands[line]);
+	else if (line == 6)	printf("  Tempo: %d:%ds", minute, seconds);
+	else if (line < 6)	printf(commands[line]);
 }
 void GivePoints() {
 	if (things_n < last_things_n) points++;
@@ -145,12 +160,14 @@ int main() {
 				else if (y == 4 && x == 39) Say_PointsAndCommands(3);
 				else if (y == 5 && x == 39) Say_PointsAndCommands(4);
 				else if (y == 6 && x == 39) Say_PointsAndCommands(5);
+				else if (y == 7 && x == 39) Say_PointsAndCommands(6);
 			}
 			printf("\n");
 		}
 		GivePoints();
 		UpdateFrameBuffer();
 		PlayAlone();
+		count_time(50);
 		_sleep(50);
 	}
 	return 0;
