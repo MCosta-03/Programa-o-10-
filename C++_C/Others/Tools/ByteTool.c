@@ -124,7 +124,7 @@ int main() {
 			printf("Get offset: ");
 			scanf("%d", &offset_to_modify);	
 
-			//if (offset_to_modify > custom.len) {
+			if (offset_to_modify < custom.len) {
 				printf("Modify number(decimal [-255 : 255]) for: ");
 				scanf("%d", &n_to_modify);
 
@@ -134,10 +134,10 @@ int main() {
 				fclose(f_modify);
 
 				displayFile();
-			//}
-			//else {
-			//	printf("%d is overflow.\n", custom.offset);
-			//}
+			}
+			else {
+				printf("%d is overflow.\n", offset_to_modify);
+			}
 		}
 		custom.modify = 0;
 	}
