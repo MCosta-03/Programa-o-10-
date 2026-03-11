@@ -28,8 +28,8 @@ int main(){
         }
     }
     for(int i = 0; i < times; i++){
-        if(trocas[i] == 1 || trocas[i] == 0)  cout << "SIM" << endl;
-        else                                  cout << "NAO" << endl;
+        if(trocas[i] == 1 || trocas[i] == 0)  cout << "SIM " << endl;
+        else                                  cout << "NAO " << endl;
     }
     return 0;
 }
