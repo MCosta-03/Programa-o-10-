@@ -5,6 +5,13 @@
 #include <time.h>
 using namespace std;
 
+int verificar_cenarios_inferiores(int* cenarios, int n_cenarios, int quantidade){
+    int cenarios_inferiores = 0;
+    for(int i = 0; i < n_cenarios; i++)
+        if(cenarios[i] < quantidade)  cenarios_inferiores++; 
+    return cenarios_inferiores;
+}
+
 int main(){
     int cenarios[150000] = {0};
     int n_cenarios = 0;
@@ -25,10 +32,6 @@ int main(){
         if(quantidade_tmp > quantidade) quantidade = quantidade_tmp;
     }
 
-    int cenarios_inferiores = 0;
-    for(int i = 0; i < n_cenarios; i++)
-        if(cenarios[i] < quantidade)  cenarios_inferiores++; 
-    
-    cout << "\n" << cenarios_inferiores;
+    cout << "\n" << verificar_cenarios_inferiores(cenarios, n_cenarios, quantidade);
     return 0;
 }
